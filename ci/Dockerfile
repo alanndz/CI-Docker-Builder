@@ -70,6 +70,7 @@ RUN apt-get update -qq && \
         shtool \
         sshpass \
         subversion \
+        sudo \
         tar \
         texinfo \
         tzdata \
