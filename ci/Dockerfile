@@ -82,7 +82,7 @@ RUN apt-get update -qq && \
         zlib1g-dev \
         zstd
 
-RUN rm -rf /var/lib/apt/lists/* \
+RUN rm -rf /var/lib/apt/lists/*
 
 # Add user
 RUN groupadd -g 1000 -r ${USER} \
