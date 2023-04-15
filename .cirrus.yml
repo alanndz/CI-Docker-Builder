@@ -1,0 +1,12 @@
+docker_builder:
+  name: Build
+  env:
+    DOCKER_USERNAME: "ENCRYPTED[!23bd39b2274ebfc8d73d32eb509f8f2b821c42ff0e4145a8139b4a12a7a12bb99f4d4a4d7791bc67a73052c20e4685ca!]"
+    DOCKER_PASSWORD: "ENCRYPTED[!086d4cc2d2934a2fb95fe6f1457b15a6ef53f695afca550f40839a2f93d3918a5726e6b7a2249a343b83f4d8ab459379!]"
+  version_script: docker --version
+  login_script: |
+    docker login --username $DOCKER_USERNAME --password $DOCKER_PASSWORD
+  build-image_script: |
+    docker buildx build --push \
+      --tag alanndz/ubuntu:22.04 \
+      ci
