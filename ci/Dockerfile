@@ -10,14 +10,15 @@ WORKDIR /tmp
 RUN ln -snf /usr/share/zoneinfo/$TZ /etc/localtime && echo $TZ > /etc/timezone
 
 # Install packages
-RUN sudo apt-get update -qq && \
-    sudo apt-get upgrade -y && \
-    sudo apt-get install --no-install-recommends -y \
+RUN apt-get update -qq && \
+    apt-get upgrade -y && \
+    apt-get install --no-install-recommends -y \
         autoconf \
         autogen \
         automake \
         autotools-dev \
         bc \
+        build-essential \
         binutils \
         binutils-aarch64-linux-gnu \
         binutils-arm-linux-gnueabi \
@@ -56,7 +57,7 @@ RUN sudo apt-get update -qq && \
         m4 \
         make \
         nano \
-        openjdk-8-jdk \
+        openjdk-17-jdk \
         openssh-client \
         openssl \
         ovmf \
@@ -79,6 +80,8 @@ RUN sudo apt-get update -qq && \
         zip \
         zlib1g-dev \
         zstd
+
+RUN rm -rf /var/lib/apt/lists/* \
 
 # Add user
 RUN groupadd -g 1000 -r ${USER} \
