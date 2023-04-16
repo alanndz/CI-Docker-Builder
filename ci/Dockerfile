@@ -46,6 +46,7 @@ RUN apt-get update -qq && \
         libelf-dev \
         libgomp1-* \
         liblz4-tool \
+        libncurses5 \
         libncurses5-dev \
         libssl-dev \
         libstdc++6 \
