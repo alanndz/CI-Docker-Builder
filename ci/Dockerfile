@@ -5,6 +5,8 @@ LABEL maintainer "alanndz <alanndz7@gmail.com>"
 ENV TZ=Asia/Makassar
 ENV USER=cirrus
 ENV HOSTNAME=bianca
+ENV ANDROID_JACK_VM_ARGS="-Dfile.encoding=UTF-8 -XX:+TieredCompilation -Xmx120G"
+ENV JAVA_OPTS=" -Xmx120G "
 WORKDIR /tmp
 
 RUN ln -snf /usr/share/zoneinfo/$TZ /etc/localtime && echo $TZ > /etc/timezone
